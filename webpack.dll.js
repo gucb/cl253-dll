@@ -5,7 +5,8 @@ module.exports = {
   mode: "production",
   entry: {
     common: path.resolve(__dirname, "./src/common-dll"),
-    react: path.resolve(__dirname, "./src/react-dll")
+    react: path.resolve(__dirname, "./src/react-dll"),
+    sspa_react: path.resolve(__dirname, "./src/sspa_react-dll")
   },
   output: {
     path: path.resolve(__dirname, "./dll"),
@@ -25,5 +26,8 @@ module.exports = {
         NODE_ENV: JSON.stringify("production")
       }
     })
-  ]
+  ],
+  performance: {
+    hints: false
+  }
 };
