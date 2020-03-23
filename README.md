@@ -9,6 +9,7 @@ dll//合并好的dll
 
 ```
 react-dll //包括react，react-dom，react-router-dom
+react_redux-dll //redux ,react-redux
 common-dll //包括axios,moment,
 sspa_react-dll //single-spa,single-spa-react
 

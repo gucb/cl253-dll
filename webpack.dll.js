@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     common: path.resolve(__dirname, "./src/common-dll"),
     react: path.resolve(__dirname, "./src/react-dll"),
+    react_redux: path.resolve(__dirname, "./src/react_redux-dll"),
     sspa_react: path.resolve(__dirname, "./src/sspa_react-dll")
   },
   output: {
