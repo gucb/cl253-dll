@@ -4,28 +4,26 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   mode: "production",
   entry: {
-    common: path.resolve(__dirname, "./src/common-dll"),
-    react: path.resolve(__dirname, "./src/react-dll"),
-    react_redux: path.resolve(__dirname, "./src/react_redux-dll"),
-    sspa_react: path.resolve(__dirname, "./src/sspa_react-dll")
+    common: ["axios", "moment"],
+    react: ["react", "react-dom", "react-router-dom"],
+    react_redux: ["redux", "react-redux"],
+    sspa_react: ["single-spa", "single-spa-react"]
   },
   output: {
     path: path.resolve(__dirname, "./dll"),
     filename: "[name].dll.js",
-    library: "[name]Dll",
-    libraryTarget: "umd"
+    library: ["[name]Dll"],
+    libraryTarget: "var"
   },
-  devtool: "source-map",
   plugins: [
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [path.join(__dirname, "./dll")],
       verbose: true
     }),
-
-    new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
-      }
+    new webpack.DllPlugin({
+      context: __dirname,
+      name: "[name]Dll",
+      path: path.join(__dirname, "./dll/[name]_manifest.json")
     })
   ],
   performance: {
