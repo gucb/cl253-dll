@@ -7,13 +7,12 @@ module.exports = {
     common: ["axios", "moment"],
     react: ["react", "react-dom", "react-router-dom"],
     react_redux: ["redux", "react-redux"],
-    sspa_react: ["single-spa", "single-spa-react"]
+    vue: ["vue", "vuex", "vue-router"]
   },
   output: {
     path: path.resolve(__dirname, "./dll"),
     filename: "[name].dll.js",
-    library: ["[name]Dll"],
-    libraryTarget: "var"
+    library: ["[name]Dll"]
   },
   plugins: [
     new CleanWebpackPlugin({
@@ -21,7 +20,7 @@ module.exports = {
       verbose: true
     }),
     new webpack.DllPlugin({
-      context: __dirname,
+      context: "www.253.com",
       name: "[name]Dll",
       path: path.join(__dirname, "./dll/[name]_manifest.json")
     })
