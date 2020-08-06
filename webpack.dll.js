@@ -20,7 +20,7 @@ module.exports = {
       verbose: true,
     }),
     new webpack.DllPlugin({
-      context: "www.253.com",
+      context: __dirname,
       name: "[name]Dll",
       path: path.join(__dirname, "./dll/[name]_manifest.json"),
     }),
