@@ -13,6 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, "./dll"),
     filename: "[name].dll.js",
     library: ["[name]Dll"],
+    libraryTarget: "umd",
   },
   plugins: [
     new CleanWebpackPlugin({
